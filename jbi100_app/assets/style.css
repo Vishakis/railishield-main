@@ -1,0 +1,248 @@
+body {
+    background-color: #f9f9f9;
+    color: #333333;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    margin: 0px;
+}
+
+#left-column {
+    padding: 3px 2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: start;
+}
+
+#right-column {
+    background-color: #dcdcde;
+    min-height: 100hv;
+    /*overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+#control-card label {
+    font-weight: bold;
+}
+
+.graph_card {
+    background-color: white;
+    border-radius: 0.2rem;
+    padding: 0.5rem;
+    margin: 10px 0;
+    margin-top: 3px;
+    max-width: 100%; /* Set the maximum width to 90% of the container or screen */
+    margin: 20px ; /* Center the chart */
+}
+
+.graph_card h6 {
+    margin:  0 10px;
+    padding-bottom: 7px;
+    border-bottom:  1px solid #ccc;
+}
+
+.dccGraph {
+    max-width: 100%; /* Ensure the graph inside the card doesn't overflow */
+    margin: 0; /* Eliminate additional gaps around charts */
+}
+
+#select-acc-type {
+    margin: 0 auto; /* Center the dropdown horizontally */
+    display: block; /* Ensure the dropdown occupies its parent container */
+    width: 200px; /* Adjust the container width */
+    font-size: 14px; /* Ensure consistency with other dropdowns */
+}
+
+#description-card h5 {
+    font-family: "Serif", Serif;
+    font-size: 35px; /* Make the title bigger */
+    font-weight: bold; /* Make it bold */
+    text-align: center; /* Center the text */
+    margin-bottom: 1px; /* Add some space below the title */
+    margin-top: 0;
+    color: #000; /* Keep the original color */
+}
+
+#description-card {
+       margin: 0; /* Reset margins for the description card */
+       padding: 0; /* Reset padding for the description card */
+   }
+
+#reset-filters {
+    display: flex;
+    margin: 5px auto; /* Add spacing and center the button */
+    padding: 8px 16px; /* Make the button size larger */
+    font-size: 12px; /* Increase font size */
+    background-color: #2c8cff; /* Optional: Button background color */
+    color: #fff; /* Optional: Button text color */
+    border: none; /* Remove borders */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Add pointer for hover effect */
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+
+#reset-filters:hover {
+    background-color: #1a6bcd; /* Add hover effect for button */
+}
+
+/*Date, Time Styling-----------------------------------------------------------------------*/
+
+#select-date-wrapper label {
+    text-align: center; /* Center the text horizontally */
+    width: 100%; /* Ensure label spans its container */
+    margin-bottom: 1px;
+}
+
+#select-date-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content of the wrapper */
+    margin-bottom: 0px;
+}
+
+ #select-time-wrapper label {
+    text-align: center; /* Center the text horizontally */
+    width: 100%; /* Ensure label spans its container */
+    margin-bottom: 1px;
+}
+
+#select-time-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the content of the wrapper */
+    margin-bottom: 0px;
+}
+
+#select-date {
+display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#select-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+}
+
+
+/*State,Track Type Styling ---------------------------------------------------------------------*/
+
+#select-state, #select-track-type {
+    font-size: 14px; /* Set font size */
+    width: 100%; /* Dropdown fills the parent container's width */
+}
+
+#state-track-row {
+    display: block;
+    justify-content: center;
+    gap: 10px; /* Add space between dropdowns */
+
+}
+
+#state-track-row label {
+    display: block; /* Ensure proper alignment of the label */
+    text-align: center; /* Center the label text horizontally */
+    margin-bottom: 5px; /* Add spacing between label and dropdown */
+}
+
+#state-track-row div {
+    flex-direction: column; /* Ensure label and dropdown are stacked vertically */
+    align-items: center; /* Center them horizontally */
+    text-align: center; /* Ensure text elements are centered */
+    width: 150px; /* Set a fixed width for uniform layout (or adjust as needed) */
+}
+
+/* Weather and Visibility Styling --------------------------------------------------------------*/
+
+#select-weather, #select-visibility  {
+       width: 150px;
+       font-size: 14px;
+}
+
+#weather-visibility-row {
+    display: block;
+    justify-content: center;
+    gap: 10px; /* Add space between dropdowns */
+}
+
+#weather-visibility-row label {
+    display: block; /* Ensure proper alignment of the label */
+    text-align: center; /* Center the label text horizontally */
+    margin-bottom: 5px; /* Add spacing between label and dropdown */
+}
+
+#weather-visibility-row div {
+    flex-direction: column; /* Ensure label and dropdown are stacked vertically */
+    align-items: center; /* Center them horizontally */
+    text-align: center; /* Ensure text elements are centered */
+    width: 150px; /* Set a fixed width for uniform layout (or adjust as needed) */
+}
+
+/* Temperature, Train Speed and Trailing Tons Styling ------------------------------------------*/
+
+#select-temperature ~ label, #select-train-speed ~ label, #select-tons ~ label {
+    display: block;
+    text-align: center;
+    margin-bottom: 3px;
+    font-weight: bold;
+    width: 100%;
+}
+
+/* Align Sliders and Labels in Column Layout for Centering */
+#select-temperature, #select-train-speed,#select-tons {
+    margin: 10px auto;            /* Center the slider horizontally */
+    display: flex;             /* Adjust display if needed */
+    flex-direction: column;    /* Stack label and slider vertically */
+    align-items: center;       /* Center elements horizontally */
+    width: 80%;
+}
+
+.tooltip-train-speed, .tooltip-tons {
+    text-align: center;        /* Center tooltips below labels/sliders */
+    font-size: 12px;           /* Keep tooltip text small for better readability */
+    color: black;              /* Ensure tooltips have a neutral color */
+    margin-top: 3px;           /* Add spacing above tooltips */
+}
+
+#select-temperature-wrapper, #select-train-speed-wrapper, #select-tons-wrapper {
+    text-align: center;          /* Center align contents */
+    margin-bottom: 3px;         /* Consistent spacing for sections */
+    display: flex;
+    flex-direction: column;      /* Stack label, tooltip, and slider */
+    align-items: center;         /* Horizontal centering */
+    justify-content: center;     /* Center content in container */
+}
+
+/* Line chart mean, Line chart and Bar chart Styling:*/
+#line-chart-mean-row {
+    display: flex;                   /* Align dropdowns side-by-side */
+    justify-content: space-between;  /* Space them evenly */
+    margin-bottom: 10px;             /* Add spacing below the row */
+}
+
+/* Individual dropdown container styling */
+#line-chart-mean-row div {
+    flex-direction: column;          /* Stack label on top of dropdown */
+    align-items: center;             /* Center-align both label and dropdown */
+    text-align: center;              /* Center-align text in the container */
+    width: 150px;                    /* Uniform width for the dropdown containers */
+}
+
+#line-chart-mean-row label {
+    text-align: center;              /* Center-align all labels horizontally */
+    margin-bottom: 5px;              /* Add space between the label and the dropdown */
+}
+
+#bar-chart-container {
+    text-align: center;          /* Center-align the label and dropdown */
+    margin-bottom: 10px;         /* Add vertical spacing below the dropdown */
+    width: 200px;                /* Set fixed width for this dropdown */
+    margin-inline: auto;         /* Center the dropdown container horizontally */
+}
+
+
