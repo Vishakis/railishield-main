@@ -224,14 +224,33 @@ class Mapplot(html.Div):
             self.filtered_data.loc[self.filtered_data['time'] > end_time, 'reason'] = 'end time'
 
     def get_figure(self):
+        plot_data = self.filtered_data.rename(columns={
+            "CASKLDRR": "People Killed",
+            "CASINJRR": "People Injured",
+            "personel": "Personnel on duty",
+            "ENGRS": "Engineers",
+            "FIREMEN": "Firemen",
+            "CONDUCTR": "Conductors",
+            "BRAKEMEN": "Brakemen",
+            "Longitud": "Longitude"  # Renaming column for consistency
+        })
+
         curr_fig = px.scatter_mapbox(
-            self.filtered_data,
+            plot_data,
             lat="Latitude",
-            lon="Longitud",
-            hover_name="reason",
-            hover_data={'show': False, "CASKLDRR": True, "CASINJRR": True, "personel": True, "ENGRS": True, "FIREMEN": True, "CONDUCTR": True, "BRAKEMEN": True},
+            lon="Longitude",  # Now using the renamed column
+            hover_data={
+                "People Killed": True,  # Correct column name
+                "People Injured": True,  # Correct column name
+                "Personnel on duty": True,  # Renamed column
+                "Engineers": True,
+                "Firemen": True,
+                "Conductors": True,
+                "Brakemen": True,
+                "show": False,
+            },
             custom_data=["ID"],
-            color=self.filtered_data['show'],
+            color="show",
             color_discrete_map={False: "gray", True: "red"},
             zoom=self.zoom,
             center=self.center,
@@ -248,14 +267,14 @@ class Mapplot(html.Div):
             uirevision=True,
         )
         curr_fig.update_traces(
-            selected=dict(marker=dict(opacity=1.0)),
-            unselected=dict(marker=dict(opacity=1.0))
+            selected=dict(marker=dict(opacity=0.7)),
+            unselected=dict(marker=dict(opacity=0.3))
         )
         curr_fig.update_layout(showlegend=False)
         curr_fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 
         return curr_fig
-    
+
     def update_view(self, obj):
         if obj is not None:
             if obj.get('map.center') is not None:
