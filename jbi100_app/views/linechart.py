@@ -250,16 +250,16 @@ class Linechart(html.Div):
 
         # Colorblind-friendly colors
         colorblind_colors = [
-            '#377eb8',  # Blue
-            '#ff7f00',  # Orange
-            '#4daf4a',  # Green
-            '#f781bf',  # Pink
-            '#a65628',  # Brown
-            '#984ea3',  # Purple
-            '#999999',  # Gray
-            '#e41a1c',  # Red
-            '#dede00',  # Yellow
-        ]
+                '#377eb8',  # Blue
+                '#ff9f4a',  # Light Orange
+                '#55a868',  # Teal Green
+                '#f781bf',  # Pink
+                '#a6611a',  # Dark Orange-Brown
+                '#9467bd',  # Softer Purple
+                '#808080',  # Medium Gray
+                '#e41a1c',  # Red
+                '#eec900',  # Gold-Yellow
+            ]
 
         if self.attr1 == 'TYPE':
             curr_mapping = acc_type_mapping
