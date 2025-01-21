@@ -244,9 +244,22 @@ class Linechart(html.Div):
         df_curr = df_curr.reset_index()
 
         return df_curr
-    
+
     def get_figure(self):
         curr_fig = None
+
+        # Colorblind-friendly colors
+        colorblind_colors = [
+            '#377eb8',  # Blue
+            '#ff7f00',  # Orange
+            '#4daf4a',  # Green
+            '#f781bf',  # Pink
+            '#a65628',  # Brown
+            '#984ea3',  # Purple
+            '#999999',  # Gray
+            '#e41a1c',  # Red
+            '#dede00',  # Yellow
+        ]
 
         if self.attr1 == 'TYPE':
             curr_mapping = acc_type_mapping
@@ -261,20 +274,22 @@ class Linechart(html.Div):
 
         curr_data = self.get_line_chart_data(curr_mapping)
 
-        curr_fig = px.line(curr_data, 
-                           x="YEAR4", 
-                           y=self.attr2, 
-                           color=self.attr1, 
+        # Set the colorblind colors as the default
+        curr_fig = px.line(curr_data,
+                           x="YEAR4",
+                           y=self.attr2,
+                           color=self.attr1,
                            markers=True,
-                           custom_data=[curr_data[self.attr1], [self.attr1] * len(curr_data)])
+                           custom_data=[curr_data[self.attr1], [self.attr1] * len(curr_data)],
+                           color_discrete_sequence=colorblind_colors)  # Use the predefined color sequence
         curr_fig.update_traces(textposition="bottom right")
-        curr_fig.update_layout(xaxis_title="Year", 
+        curr_fig.update_layout(xaxis_title="Year",
                                yaxis_title=self.title2 + ' (mean)',
-                               legend_title=self.title1,)
+                               legend_title=self.title1, )
 
         return curr_fig
 
-    def update(self, 
+    def update(self,
                selected_points,
                selected_state, 
                selected_weather, 
